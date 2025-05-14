@@ -3,7 +3,13 @@ from tkinter import *
 from tkinter import messagebox
 import random
 
-
+class Character:
+    """This is a helper class for storing the infomation of Chinese characters"""
+    def __init__(self, character, pinyin, meaning):
+        self.character = character
+        self.pinyin = pinyin
+        self.meaning = meaning
+        
 class Program:
     """Creat a class for this program."""
 
@@ -11,76 +17,76 @@ class Program:
         """Initialize the program."""
         self.chinese_words = [
             # Beginner Vocab
-            ["人", "rén", "person"],
-            ["口", "kǒu", "mouth"],
-            ["日", "rì", "sun, day"],
-            ["月", "yuè", "moon"],
-            ["山", "shān", "mountain"],
-            ["水", "shuǐ", "water"],
-            ["火", "huǒ", "fire"],
-            ["木", "mù", "wood"],
-            ["大", "dà", "big"],
-            ["小", "xiǎo", "small"],
+            Character("人", "rén", "person"),
+            Character("口", "kǒu", "mouth"),
+            Character("日", "rì", "sun, day"),
+            Character("月", "yuè", "moon"),
+            Character("山", "shān", "mountain"),
+            Character("水", "shuǐ", "water"),
+            Character("火", "huǒ", "fire"),
+            Character("木", "mù", "wood"),
+            Character("大", "dà", "big"),
+            Character("小", "xiǎo", "small"),
 
             # Elementary Vocab
-            ["中", "zhōng", "middle"],
-            ["国", "guó", "country"],
-            ["上", "shàng", "up"],
-            ["下", "xià", "down"],
-            ["好", "hǎo", "good"],
-            ["学", "xué", "study"],
-            ["生", "shēng", "life"],
-            ["我", "wǒ", "me"],
-            ["你", "nǐ", "you"],
-            ["他", "tā", "he"],
+            Character("中", "zhōng", "middle"),
+            Character("国", "guó", "country"),
+            Character("上", "shàng", "up"),
+            Character("下", "xià", "down"),
+            Character("好", "hǎo", "good"),
+            Character("学", "xué", "study"),
+            Character("生", "shēng", "life"),
+            Character("我", "wǒ", "me"),
+            Character("你", "nǐ", "you"),
+            Character("他", "tā", "he"),
 
             # Intermediate Vocab
-            ["爱", "ài", "love"],
-            ["想", "xiǎng", "think"],
-            ["做", "zuò", "do, make"],
-            ["说", "shuō", "speak"],
-            ["看", "kàn", "look"],
-            ["听", "tīng", "listen"],
-            ["走", "zǒu", "walk"],
-            ["来", "lái", "come"],
-            ["去", "qù", "go"],
-            ["有", "yǒu", "have"],
+            Character("爱", "ài", "love"),
+            Character("想", "xiǎng", "think"),
+            Character("做", "zuò", "do, make"),
+            Character("说", "shuō", "speak"),
+            Character("看", "kàn", "look"),
+            Character("听", "tīng", "listen"),
+            Character("走", "zǒu", "walk"),
+            Character("来", "lái", "come"),
+            Character("去", "qù", "go"),
+            Character("有", "yǒu", "have"),
 
             # Upper Intermediate Vocab
-            ["理", "lǐ", "reason"],
-            ["情", "qíng", "emotion"],
-            ["意", "yì", "meaning"],
-            ["知", "zhī", "know"],
-            ["道", "dào", "way"],
-            ["得", "dé", "obtain"],
-            ["法", "fǎ", "law"],
-            ["信", "xìn", "believe"],
-            ["明", "míng", "bright"],
-            ["实", "shí", "real, solid"],
+            Character("理", "lǐ", "reason"),
+            Character("情", "qíng", "emotion"),
+            Character("意", "yì", "meaning"),
+            Character("知", "zhī", "know"),
+            Character("道", "dào", "way"),
+            Character("得", "dé", "obtain"),
+            Character("法", "fǎ", "law"),
+            Character("信", "xìn", "believe"),
+            Character("明", "míng", "bright"),
+            Character("实", "shí", "real, solid"),
 
             # Advanced Vocab
-            ["哲", "zhé", "philosophy"],
-            ["辩", "biàn", "debate"],
-            ["逻", "luó", "logic"],
-            ["矛", "máo", "spear"],
-            ["盾", "dùn", "shield"],
-            ["抽", "chōu", "extract"],
-            ["象", "xiàng", "elephant"],
-            ["证", "zhèng", "proof"],
-            ["论", "lùn", "discuss"],
-            ["绝", "jué", "absolute"],
+            Character("哲", "zhé", "philosophy"),
+            Character("辩", "biàn", "debate"),
+            Character("逻", "luó", "logic"),
+            Character("矛", "máo", "spear"),
+            Character("盾", "dùn", "shield"),
+            Character("抽", "chōu", "extract"),
+            Character("象", "xiàng", "elephant"),
+            Character("证", "zhèng", "proof"),
+            Character("论", "lùn", "discuss"),
+            Character("绝", "jué", "absolute"),
 
             # Expert (Rare/Complex) Vocab
-            ["玄", "xuán", "mysterious, profound"],
-            ["禅", "chán", "Zen (Buddhism)"],
-            ["韵", "yùn", "rhyme, charm"],
-            ["熵", "shāng", "entropy"],
-            ["爻", "yáo", "divination lines"],
-            ["龖", "dá", "appearance of a dragon"],
-            ["靐", "bìng", "thunder"],
-            ["齉", "nàng", "stuffy nose"],
-            ["龘", "dá", "flying dragon"],
-            ["䨻", "bèng", "thunderclap"]
+            Character("玄", "xuán", "mysterious, profound"),
+            Character("禅", "chán", "Zen (Buddhism)"),
+            Character("韵", "yùn", "rhyme, charm"),
+            Character("熵", "shāng", "entropy"),
+            Character("爻", "yáo", "divination lines"),
+            Character("龖", "dá", "appearance of a dragon"),
+            Character("靐", "bìng", "thunder"),
+            Character("齉", "nàng", "stuffy nose"),
+            Character("龘", "dá", "flying dragon"),
+            Character("䨻", "bèng", "thunderclap")
         ]  # Create a Chinese character list
         self.option_list = []  # A list for contaning options
         self.current_ans = []  # A list for storing current answer
@@ -178,16 +184,17 @@ class Program:
         self.score_board.grid(row=4, column=1, padx=10, pady=5)
 
     def change_to_display(self):
-        """Change the first page to the second page."""
+        """Change the first page to the second page by griding."""
         if not self.customized_lives():
             return
+        # Check if the user put a valid number in the blank
         self.f1.grid_forget()
         self.f2.grid()  # Change the display from first page tp the second page
         self.generate_question()
         self.update_question()
 
     def generate_question(self):
-        """Generate the question type and option."""
+        """Generate the question type and option based on random choose of Boolean"""
         selected = random.choice([True, False])  # Questions type selecting
         if selected:
             self.display_que.config(text="Which one is the right pinyin?")
@@ -201,7 +208,7 @@ class Program:
     def update_question(self):
         """Update the word from question the the header."""
         selected = random.choice(self.option_list)
-        self.display_header.config(text=f"{selected[0]}")  # display the characters
+        self.display_header.config(text=f"{selected.character}")  # display the characters
         self.current_ans.append(selected)
 
     def generate_option(self):
@@ -216,10 +223,13 @@ class Program:
         self.num_opt = len(self.option_list)
         self.select_indi = random.sample(range(self.num_opt), self.num_btn)  # Rearrange the options
         for b, idx in zip(buttons, self.select_indi):
-            b.config(text=self.option_list[idx][que_type])  # Update the context on the button
+            if que_type == 1:
+                b.config(text=self.option_list[idx].pinyin) 
+            else:
+                b.config(text=self.option_list[idx].meaning)
 
     def check_score(self):
-        """Check the score of users and give them results."""
+        """Check the score of users and give them results. It will calculate the users' Chinese level based on the correct answers and go back to the begining page."""
         if self.count > 19 or self.lives == 0:
             degree = self.count + self.lives
             if degree >= 20:
@@ -231,7 +241,7 @@ class Program:
             elif degree < 10 and degree > 5:
                 title = "Beginner"
             elif degree < 5 and degree > 0:
-                title = "You do not speak Chinese"
+                title = "U do not speak Chinese"
             else:
                 title = "Martian"
             # Calculating users' Chinese level
@@ -244,12 +254,12 @@ class Program:
             self.f1.grid() # Go back to the first page
 
     def check_answer(self, button):
-        """Check if the answer is right."""
+        """This function will check if the answer is right and use the if statement to send message to users in order to tell them if they are correct."""
         selected_answer = button["text"]
         if self.display_que["text"] == "Which one is the right pinyin?":
-            correct_ans = self.current_ans[0][1]  # Check answer for pinyin
+            correct_ans = self.current_ans[0].pinyin  # Check answer for pinyin
         else:
-            correct_ans = self.current_ans[0][2]  # Check answer for meaning
+            correct_ans = self.current_ans[0].meaning  # Check answer for meaning
 
         if selected_answer == correct_ans:
             messagebox.showinfo("Correct!", "Well done!")   # Send correct message to users
@@ -276,7 +286,7 @@ class Program:
         # Generate the next question
 
     def customized_lives(self):
-        """For user to choose how many mistakes are allowed."""
+        """For user to choose how many mistakes are allowed. This loop will keep running until the users enter a valid integer."""
         try:
             self.lives = int(self.customized_live_entry.get())
             if 0 < self.lives < 6:
