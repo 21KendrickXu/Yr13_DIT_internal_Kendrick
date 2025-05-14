@@ -6,10 +6,12 @@ import random
 class Character:
     """This is a helper class for storing the infomation of Chinese characters"""
     def __init__(self, character, pinyin, meaning):
+        """Store the infomation of Chinese characters"""
         self.character = character
         self.pinyin = pinyin
         self.meaning = meaning
-        
+
+
 class Program:
     """Creat a class for this program."""
 
